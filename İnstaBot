@@ -1,0 +1,53 @@
+from selenium import webdriver
+from time import sleep
+driver = webdriver.Chrome(executable_path="/Users/sahinbolukbasi/Desktop/chromedriver")
+
+driver.get("https://instagram.com")
+sleep(2)
+
+driver.find_element_by_xpath("//*[@id='loginForm']/div/div[1]/div/label/input")\
+.send_keys("KullanıcıAdı")
+driver.find_element_by_xpath("//*[@id='loginForm']/div/div[2]/div/label/input")\
+.send_keys("Sifre")
+driver.find_element_by_xpath("//*[@id='loginForm']/div/div[3]/button")\
+.click()
+sleep(3)
+driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[6]")\
+.click()
+
+driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[6]/div[2]/div[2]/div[2]/a[1]/div")\
+.click()
+
+sayi = driver.find_element_by_xpath("//*[@id='react-root']/section/main/div/header/section/ul/li[3]/a/span").text
+
+driver.find_element_by_xpath("//*[@id='react-root']/section/main/div/header/section/ul/li[3]")\
+.click()
+
+x=1
+def f1(x):
+    while x!=7000:
+
+        data1="/html/body/div[6]/div/div/div[3]/ul/div/li["
+        data2="]/div/div[3]/button"
+        datafull="%s%s%s"%(data1,x,data2)
+        commentsub=driver.find_element_by_xpath(datafull)
+        commentsub.click()  
+        driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]")\
+        .click()
+        sleep(1)
+        x=x+1;
+        print(x)
+def f2(x):
+
+    while x!=700:
+
+        data1="/html/body/div[6]/div/div/div[3]/ul/div/li["
+        data2="]/div/div[2]/button"
+        datafull="%s%s%s"%(data1,x,data2)
+        commentsub=driver.find_element_by_xpath(datafull)
+        commentsub.click()  
+        driver.find_element_by_xpath("/html/body/div[7]/div/div/div/div[3]/button[1]")\
+        .click()
+        sleep(1)
+        x=x+1;
+        print(x)
